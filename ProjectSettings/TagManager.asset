@@ -7,6 +7,9 @@ TagManager:
   - CinemachineTarget
   - info
   - canvas
+  - canvas1
+  - info1
+  - titleinfo
   layers:
   - Default
   - TransparentFX
