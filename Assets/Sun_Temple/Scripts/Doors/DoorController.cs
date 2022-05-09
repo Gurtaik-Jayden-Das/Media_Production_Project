@@ -30,7 +30,8 @@ namespace SunTemple
 
 		private bool scriptIsEnabled = true;
 
-
+		public AudioSource playSounddoor;
+		public AudioSource playSounddoorlocked;
 
         void Start(){
             StartRotation = transform.localEulerAngles ;
@@ -76,6 +77,7 @@ namespace SunTemple
 
 				if (Input.GetKeyDown (KeyCode.Mouse0)) {
 					TryToOpen ();
+					 
 				}
 
 
@@ -97,7 +99,15 @@ namespace SunTemple
 											
 				if (DoorCollider.Raycast(ray, out hit, MaxDistance)){					
 					if (IsLocked == false){
+						playSounddoor.Play();
 						Activate ();
+
+					}
+
+					if (IsLocked == true){
+						playSounddoorlocked.Play();
+					
+
 					}
 				}
 			}
@@ -115,6 +125,7 @@ namespace SunTemple
 						cursor.SetCursorToDoor ();
 					} else if (IsLocked == true) {
 						cursor.SetCursorToLocked ();
+						
 					}					
 				} else {
 					cursor.SetCursorToDefault ();

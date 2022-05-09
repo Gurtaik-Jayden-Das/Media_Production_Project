@@ -10,6 +10,7 @@ public class DoorKey : MonoBehaviour
     private DoorValue doorvalue; 
     private SunTemple.DoorController doorController;
     private GameObject thiskey;
+    public AudioSource playSound;
  
  
     // Start is called before the first frame update
@@ -33,6 +34,8 @@ public class DoorKey : MonoBehaviour
    
   private void OnTriggerEnter(Collider other) {
        Debug.Log(doorController.IsLocked = false); 
+
+        playSound.Play();
        
       
       
